@@ -17,4 +17,4 @@ supersecret
 showdatabases;
 use company;
 show tables;
-select * from employees; ```
+select * from employees;
