@@ -1,1 +1,1 @@
-docker build -t javaConnectWithMySql .
+docker build -t java-connect-with-mysql .

@@ -1,1 +1,1 @@
-docker run javaConnectWithMySql
+docker run java-connect-with-mysql
