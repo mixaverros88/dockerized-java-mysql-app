@@ -18,3 +18,11 @@ Display all the databases => showdatabases;
 Use the company database => use company;
 Display all the tables of company database => show tables;
 Show all the rows of a employees => select * from employees;
+```
+
+#### create a docker network in order to allow communication between the containers
+```
+Create network => docker network create --driver bridge isolated 
+Add db container into the network => docker network connect isolated db
+Add java-connect-with-mysql container into the network => docker network connect isolated java-connect-with-mysql
+```
