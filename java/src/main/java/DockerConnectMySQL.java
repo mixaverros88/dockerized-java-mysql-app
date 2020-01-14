@@ -2,33 +2,31 @@ import java.sql.*;
 
 public class DockerConnectMySQL {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://db:3306/firstdb";
+    static final String DB_URL = "jdbc:mysql://192.168.99.100:3306/company?useSSL=true";
 
-    static final String USER = "user";
-    static final String PASS = "pass123";
+    static final String USER = "root";
+    static final String PASS = "supersecret";
 
     public static void main(String[] args) {
         Connection conn = null;
         Statement stmt = null;
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT PersonID, FirstName, LastName, Address, City FROM Persons";
+            sql = "SELECT first_name, last_name, department, email FROM employees";
             ResultSet rs = stmt.executeQuery(sql);
 
             while(rs.next()){
-                int id  = rs.getInt("PersonID");
-                String first = rs.getString("FirstName");
-                String last = rs.getString("LastName");
-                String address = rs.getString("Address");
-                String city = rs.getString("City");
+                String first = rs.getString("first_name");
+                String last = rs.getString("last_name");
+                String address = rs.getString("department");
+                String city = rs.getString("email");
 
-                System.out.println("ID: " + id);
                 System.out.println(", First: " + first);
                 System.out.println(", Last: " + last);
                 System.out.println(", Address: " + address);
