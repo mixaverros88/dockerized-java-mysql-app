@@ -9,10 +9,12 @@ After the build of the image, you can run the image. You can use the run.sh file
 At the run stage you can specify the root pass, and the  ports.
 
 If you want to validate the creation of the database you can connect to the container with the below commands.
-#### docker exec -t my-mysql bash
-#### mysql -uroot -p
-#### supersecret
-#### showdatabases;
-#### use company;
-#### show tables;
-#### select * from employees;
+
+``` 
+docker exec -t my-mysql bash 
+mysql -uroot -p
+supersecret
+showdatabases;
+use company;
+show tables;
+select * from employees; ```
