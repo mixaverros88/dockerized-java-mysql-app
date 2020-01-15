@@ -1,1 +1,1 @@
-docker run -d -p 3306:3306 --name javaApp -e MYSQL_ROOT_PASSWORD=supersecret javaConnectWithMySql
+docker run -d -p 3306:3306 --name javaApp -e MYSQL_ROOT_PASSWORD=supersecret my-mysql
