@@ -1,8 +1,10 @@
+package gr;
+
 import java.sql.*;
 
 public class DockerConnectMySQL {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://192.168.99.100:3306/company?useSSL=true";
+    static final String DB_URL = "jdbc:mysql://db/company?useSSL=true";
 
     static final String USER = "root";
     static final String PASS = "supersecret";
