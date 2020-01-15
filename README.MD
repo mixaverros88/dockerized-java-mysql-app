@@ -20,7 +20,7 @@ Display all the tables of company database => show tables;
 Show all the rows of a employees => select * from employees;
 ```
 
-![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) create a docker network in order to allow communication between the containers
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) Create a docker network in order to allow communication between the containers
 ```
 Create network => docker network create --driver bridge isolated 
 Add db container into the network => docker network connect isolated db
