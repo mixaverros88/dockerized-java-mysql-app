@@ -9,9 +9,10 @@ public class DockerConnectMySQL {
     static final String USER = "root";
     static final String PASS = "supersecret";
 
-    public static void main(String[] args) {
+    public StringBuilder getValuesFromDatabase() {
         Connection conn = null;
         Statement stmt = null;
+        StringBuilder response = new StringBuilder();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -29,6 +30,10 @@ public class DockerConnectMySQL {
                 String address = rs.getString("department");
                 String city = rs.getString("email");
 
+                response.append(first);
+                response.append(last);
+                response.append(address);
+                response.append(city);
                 System.out.println(", First: " + first);
                 System.out.println(", Last: " + last);
                 System.out.println(", Address: " + address);
@@ -54,5 +59,7 @@ public class DockerConnectMySQL {
                 se.printStackTrace();
             }
         }
+
+        return response;
     }
 }
