@@ -1,5 +1,5 @@
 # a lightweight linux distribution
-FROM tomcat:8.0-alpine
+FROM tomcat:9.0-alpine
 
 # maintainer
 LABEL maintainer="mixalisverros@hotmail.gr"
