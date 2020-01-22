@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DockerConnectMySQL {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://mysqlapp/company?useSSL=true";
+    static final String DB_URL = "jdbc:mysql://192.168.99.105:3306/company?useSSL=true";
 
     static final String USER = "root";
     static final String PASS = "supersecret";
@@ -30,10 +30,10 @@ public class DockerConnectMySQL {
                 String address = rs.getString("department");
                 String city = rs.getString("email");
 
-                response.append(first);
-                response.append(last);
-                response.append(address);
-                response.append(city);
+                response.append(" First: " + first + "\n");
+                response.append(" Last: " + last + "\n");
+                response.append(" Address: " + address + "\n");
+                response.append(" City: " + city + "\n");
                 System.out.println(", First: " + first);
                 System.out.println(", Last: " + last);
                 System.out.println(", Address: " + address);
