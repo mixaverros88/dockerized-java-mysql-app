@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  javaapp:
+    image: mixaverross88/java-connect-with-mysql
+    ports:
+      - 80:8080
+    networks:
+      - isolated
+    volumes:
+      - /$(pwd):/usr/local/tomcat/webapps
+  mysqlapp:
+    image: mixaverross88/my-mysql
+    enviroment:
+      - MYSQL_ROOT_PASSWORD=supersecret
+    ports:
+      - 3306:3306
+    networks:
+      - isolated
+    volumes:
+      - /$(pwd):/usr/local/tomcat/webapps
+
+volumes:
+  isolated:
+    external: false
