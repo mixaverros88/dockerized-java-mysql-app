@@ -2,15 +2,18 @@
 
 This simple example combines 2 docker files, one to spin up a mysql container and the other a java container.
 
-These docker files are located in the corresponding folders ( mysql, java).
+These docker files are located in the corresponding folders (mysql, java).
 
-Also you can find a network folder, which contains instructions to create a network in order to allow the communication between the containers throughout containers names.
+Also you can find a network folder, which contains an sh file to create a network in order to allow the communication between the containers throughout containers names.
 ***
 ### Start the mysql container 
 
 ![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/dockerIcon.png)
-You can find the mysql dockerfile in the mysql folder. There you can run the build.sh file in order to build the docker image.
-If you want to change the database you can change the ENV in dockerfile or you can remove it from docker file and pass the value at the run stage.
+You can find the mysql dockerfile in the mysql folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
+```
+docker build -t my-mysql .
+```
+If you want to change the database name you can change the ENV in dockerfile or you can remove it from docker file and pass the value at the run stage.
 
 After the build of the image, you can run the image. You can use the run.sh file.
 At the run stage you can specify the root pass, and the  ports.
@@ -60,10 +63,12 @@ The process is correct.
 ***
 
 ### Start the java container 
-You can find the java dockerfile in the java folder. There you can run the build.sh file in order to build the docker image.
-
+You can find the java dockerfile in the java folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
+```
+docker build -t java-connect-with-mysql .
+```
 After the build of the image, you can run the image. You can use the run.sh file.
-At the run stage you can specify the root pass, and the  ports.
+At the run stage you can specify the ports and the volume.
 Or you can run the below commands
 ```
 filepath=$PWD
@@ -82,9 +87,7 @@ docker-machine ls
 ```
 ***
 ### Create network
-![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) Create a docker network in order to allow communication between the containers
-
-
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) Create a docker bridge network in order to allow communication  between the containers, through container name instead of container IP.  
 ```
 docker network create --driver bridge isolated 
 ```
