@@ -12,7 +12,7 @@ services:
   mysqlapp:
     image: mixaverross88/my-mysql
     enviroment:
-      - MYSQL_ROOT_PASSWORD=supersecret
+      - MYSQL_ROOT_PASSWORD=/run/secrets/mysql_root_pass
     ports:
       - 3306:3306
     networks:
@@ -23,3 +23,6 @@ services:
 volumes:
   isolated:
     external: false
+secrets:
+  mysql_root_pass:
+    external: true
