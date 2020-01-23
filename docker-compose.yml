@@ -11,6 +11,8 @@ services:
       - /$(pwd):/usr/local/tomcat/webapps
   mysqlapp:
     image: mixaverross88/my-mysql
+    secrets:
+      - mysql_root_pass
     enviroment:
       - MYSQL_ROOT_PASSWORD=/run/secrets/mysql_root_pass
     ports:
