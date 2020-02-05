@@ -1,8 +1,8 @@
 # Dockerize java mysql example project
 
-This simple example combines 2 docker files, one to spin up a mysql container and the other a java container.
+This simple example combines 2 docker files or docker-compose file, one to spin up a mysql container and the other a java container.
 
-These docker files are located in the corresponding folders (mysql, java).
+These docker files are located in the corresponding folders (mysql, java).And the docker-compose file in the root folder.
 
 Also you can find a network folder, which contains an sh file to create a network in order to allow the communication between the containers throughout containers names.
 ***
