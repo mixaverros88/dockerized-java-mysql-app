@@ -1,14 +1,15 @@
 # Dockerize java mysql example project
 
+![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/docker_overview.JPG)
 This simple example combines 2 docker files or docker-compose file, one to spin up a mysql container and the other a java container.
 
-These docker files are located in the corresponding folders (mysql, java).And the docker-compose file in the root folder.
+These docker files are located in the corresponding folders (mysql, java). Also contains a docker-compose file in the root folder.
 
 Also you can find a network folder, which contains an sh file to create a network in order to allow the communication between the containers throughout containers names.
 ***
 ### Start the mysql container 
 
-![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/dockerIcon.png)
+![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/MySQL-512.png)
 You can find the mysql dockerfile in the mysql folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
 ```
 docker build -t my-mysql .
@@ -63,13 +64,15 @@ The process is correct.
 ***
 
 ### Start the java container 
+
+![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/javaIco.png)
 You can find the java dockerfile in the java folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
 ```
 docker build -t java-connect-with-mysql .
 ```
 After the build of the image, you can run the image. You can use the run.sh file.
-At the run stage you can specify the ports and the volume.
-Or you can run the below commands
+At the run stage you can specify the ports and the volumes.
+Or you can run the below commands.
 ```
 filepath=$PWD
 cd $filepath
@@ -80,14 +83,15 @@ curl -LOk https://github.com/mixaverros88/docker_with_java_and_mysql/raw/master/
 # run the docker
 winpty docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps java-connect-with-mysql
 ```
-You can reach this service through docker machine ip/demorest/
-To find docker machine ip execute the following command
+You can reach this service through docker machine http://docker-machine-ip/demorest/
+
+To find docker machine ip, execute the following command.
 ```
 docker-machine ls
 ```
 ***
 ### Create network
-![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) Create a docker bridge network in order to allow communication  between the containers, through container name instead of container IP.  
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker_with_java_and_mysql/master/icons/docker_network.png) Create a bridge network in order to allow communication  between the containers, through container name instead of container IP.  
 ```
 docker network create --driver bridge isolated 
 ```
@@ -101,6 +105,7 @@ docker network connect isolated java-connect-with-mysql
 ```
 ***
 ### Create secrets 
+![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/dockerIcon.png)
 ```
 echo "my-db-pass" | docker secret create mysql_root_pass -
 ```
