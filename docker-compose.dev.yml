@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  javaapp:
+    image: mixaverross88/dockerize_java_mysql_example_project
+    ports:
+      - 80:8080
+    networks:
+      - isolated
+    volumes:
+      - /$(pwd):/usr/local/tomcat/webapps
+  mysqlapp:
+    image: mixaverross88/dockerize_java_mysql_example_project_mysql
+    enviroment:
+      - MYSQL_ROOT_PASSWORD=supersecret 
+    ports:
+      - 3306:3306
+    networks:
+      - isolated
+
+volumes:
+  isolated:
+    external: false
+    
