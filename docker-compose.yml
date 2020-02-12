@@ -11,20 +11,14 @@ services:
       - /$(pwd):/usr/local/tomcat/webapps
   mysqlapp:
     image: mixaverross88/dockerize_java_mysql_example_project_mysql
-    secrets:
-      - mysql_root_pass
     enviroment:
-      - MYSQL_ROOT_PASSWORD=/run/secrets/mysql_root_pass
+      - MYSQL_ROOT_PASSWORD=supersecret 
     ports:
       - 3306:3306
     networks:
       - isolated
-    volumes:
-      - /$(pwd):/usr/local/tomcat/webapps
 
 volumes:
   isolated:
     external: false
-secrets:
-  mysql_root_pass:
-    external: true
+    
