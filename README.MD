@@ -1,6 +1,6 @@
 # Dockerize java mysql example project
 
-![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/docker_overview.JPG)
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/docker_overview.JPG)
 This simple example combines 2 docker files or docker-compose file, one to spin up a mysql container and the other a java container.
 
 These docker files are located in the corresponding folders (mysql, java). Also contains a docker-compose file in the root folder.
@@ -9,7 +9,7 @@ Also you can find a network folder, which contains an sh file to create a networ
 ***
 ### Start the mysql container 
 
-![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/MySQL-512.png)
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/MySQL-512.png)
 You can find the mysql dockerfile in the mysql folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
 ```
 docker build -t my-mysql .
@@ -65,7 +65,7 @@ The process is correct.
 
 ### Start the java container 
 
-![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/javaIco.png)
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/javaIco.png)
 You can find the java dockerfile in the java folder. There you can run the build.sh file in order to build the docker image or you can run the following command.
 ```
 docker build -t java-connect-with-mysql .
@@ -105,7 +105,7 @@ docker network connect isolated java-connect-with-mysql
 ```
 ***
 ### Create secrets 
-![preview image](https://github.com/mixaverros88/docker_with_java_and_mysql/blob/master/icons/dockerIcon.png)
+![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/dockerIcon.png)
 ```
 echo "my-db-pass" | docker secret create mysql_root_pass -
 ```
