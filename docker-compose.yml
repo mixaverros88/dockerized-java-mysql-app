@@ -2,7 +2,7 @@ version: '3'
 
 services:
   javaapp:
-    image: mixaverross88/dockerize_java_mysql_example_project:prod
+    image: mixaverross88/dockerize_java_mysql_example_project
     ports:
       - 80:8080
     networks:
@@ -10,7 +10,7 @@ services:
     volumes:
       - /$(pwd):/usr/local/tomcat/webapps
   mysqlapp:
-    image: mixaverross88/dockerize_java_mysql_example_project:mysql_prod
+    image: mixaverross88/dockerize_java_mysql_example_project_mysql
     secrets:
       - mysql_root_pass
     enviroment:
