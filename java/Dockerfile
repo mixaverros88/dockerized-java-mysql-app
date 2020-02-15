@@ -10,7 +10,7 @@ COPY --from=downloadSourceCode /app/docker-with-java-and-mysql/java /app
 RUN mvn package
 
 # Stage 3: spin up a tomcat container
-FROM tomcat:8.0-alpine
+FROM tomcat:9.0-alpine
 WORKDIR /app
 COPY --from=packageSourceCode /app/target/RESTfulExample.war /usr/local/tomcat/webapps
 # the port which the tomcat is listening inside the container

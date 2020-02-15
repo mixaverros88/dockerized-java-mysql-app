@@ -83,7 +83,7 @@ curl -LOk https://github.com/mixaverros88/docker_with_java_and_mysql/raw/master/
 # run the docker
 winpty docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps java-connect-with-mysql
 ```
-You can reach this service through docker machine http://docker-machine-ip/demorest/
+You can reach this service through docker machine http://docker-machine-ip/RESTfulExample/rest/hello/test
 
 To find docker machine ip, execute the following command.
 ```
