@@ -9,9 +9,13 @@ services:
       - isolated
   mysqlapp:
     image: mixaverross88/dockerize_java_mysql_example_project_mysql
-    enviroment:
+    environment:
       - MYSQL_ROOT_PASSWORD=supersecret 
     ports:
       - 3306:3306
     networks:
       - isolated
+
+networks: 
+  isolated:
+    driver: bridge

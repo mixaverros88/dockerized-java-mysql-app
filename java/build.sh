@@ -1,1 +1,1 @@
-docker build -t java-connect-with-mysql .
+docker build -t mixaverross88/dockerize_java_mysql_example_project .

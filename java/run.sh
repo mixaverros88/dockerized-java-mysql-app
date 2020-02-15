@@ -1,11 +1,6 @@
-filepath=$PWD
-cd $filepath
-mkdir deploy
-cd deploy
-# Download the war from gihub
-curl -LOk https://github.com/mixaverros88/docker_with_java_and_mysql/raw/master/java/target/RESTfulExample.war
 # run the docker
-winpty docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps java-connect-with-mysql
+docker run  -d --name javaapp -p 80:8080 mixaverross88/dockerize_java_mysql_example_project
+# docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps mixaverross88/dockerize_java_mysql_example_project
 # you can reach this service through docker machine ip, also add the demorest folder to the path
 # to find docker-machine ip execute the following command
 # docker-machine ls
