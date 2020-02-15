@@ -1,7 +1,7 @@
 # Dockerize java mysql example project
 
 ![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/docker_overview.JPG)
-This simple example combines 2 docker files or docker-compose file, one to spin up a mysql container and the other a java container.
+This simple example combines 2 docker files and docker-compose file, one to spin up a mysql container and the other a java container.
 
 These docker files are located in the corresponding folders (mysql, java). Also contains a docker-compose file in the root folder.
 
@@ -74,14 +74,7 @@ After the build of the image, you can run the image. You can use the run.sh file
 At the run stage you can specify the ports and the volumes.
 Or you can run the below commands.
 ```
-filepath=$PWD
-cd $filepath
-mkdir deploy
-cd deploy
-# Download the war from gihub
-curl -LOk https://github.com/mixaverros88/docker_with_java_and_mysql/raw/master/java/target/RESTfulExample.war
-# run the docker
-winpty docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps java-connect-with-mysql
+docker run  -d --name javaapp -p 80:8080 -v /$(pwd):/usr/local/tomcat/webapps java-connect-with-mysql
 ```
 You can reach this service through docker machine http://docker-machine-ip/RESTfulExample/rest/hello/test
 
@@ -104,11 +97,6 @@ Add java-connect-with-mysql container into the network
 docker network connect isolated java-connect-with-mysql
 ```
 ***
-### Create secrets 
-![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/dockerIcon.png)
-```
-echo "my-db-pass" | docker secret create mysql_root_pass -
-```
 ### :computer: Deploy instructions ###
 Use the maven plug-in (tomcat7-maven-plugin) for tomcat server in order to automatically deploy this project in your local server. You can find this plug-in in pom.xml file in order to modify with yours configurations, also don't forget to add in settings.xml your credentials for tomcat server.
 ```
