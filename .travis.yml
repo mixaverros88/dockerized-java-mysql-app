@@ -3,6 +3,8 @@ language: java
 jdk:
 - openjdk8
 
+before_script: cd java
+
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
 
@@ -10,3 +12,4 @@ sudo: false
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/.gradle
