@@ -9,6 +9,15 @@ These docker files are located in the corresponding folders (mysql, java). Also 
 
 Also you can find a network folder, which contains an sh file to create a network in order to allow the communication between the containers throughout containers names.
 ***
+### Docker Compose
+At the root file run the following command 
+```
+docker-compose up
+```
+After visit the following url
+```
+http://localhost/RESTfulExample/rest/hello/Test
+```
 ### Start the mysql container 
 
 ![preview image](https://raw.githubusercontent.com/mixaverros88/docker-with-java-and-mysql/master/icons/MySQL-512.png)
@@ -22,7 +31,7 @@ After the build of the image, you can run the image. You can use the run.sh file
 At the run stage you can specify the root pass, and the  ports.
 Or you can run the below command
 ```
-docker run -d -p 3306:3306 --name mysqlapp -e MYSQL_ROOT_PASSWORD=supersecret my-mysql
+docker run -d -p 3311:3306 --name mysqlapp -e MYSQL_ROOT_PASSWORD=supersecret my-mysql
 ```
 
 If you want to validate the creation of the database you can connect to the container with the below commands.

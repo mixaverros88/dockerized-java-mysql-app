@@ -11,6 +11,16 @@
     <name>RESTfulExample Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <junit>4.8.2</junit>
+        <com.sun.jersey>1.8</com.sun.jersey>
+        <mysql.connector>8.0.13</mysql.connector>
+
+        <maven-war-plugin>2.1</maven-war-plugin>
+        <org.apache.tomcat.maven>2.2</org.apache.tomcat.maven>
+        <org.apache.maven.plugins>3.2</org.apache.maven.plugins>
+    </properties>
+
     <repositories>
         <repository>
             <id>maven2-repository.java.net</id>
@@ -24,20 +34,20 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>${junit}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>1.8</version>
+            <version>${com.sun.jersey}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
+            <version>${mysql.connector}</version>
         </dependency>
     </dependencies>
 
@@ -45,20 +55,28 @@
         <finalName>RESTfulExample</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${org.apache.maven.plugins}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin}</version>
+                <configuration>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>${org.apache.tomcat.maven}</version>
                 <configuration>
-                    <server>TomcatServer</server>
                     <url>http://localhost:8080/manager/text</url>
-                    <path>/myapp</path>
+                    <server>stage-server</server>
                     <update>true</update>
                 </configuration>
             </plugin>

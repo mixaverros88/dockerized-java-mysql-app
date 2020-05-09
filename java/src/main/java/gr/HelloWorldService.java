@@ -13,7 +13,7 @@ public class HelloWorldService {
     public Response getMsg(@PathParam("param") String msg) {
 
         DockerConnectMySQL dockerConnectMySQL = new DockerConnectMySQL();
-        String output = dockerConnectMySQL.getValuesFromDatabase().toString();
+        String output = dockerConnectMySQL.getValuesFromDatabase().toString() + " Message :" + msg;
 
         return Response.status(200).entity(output).build();
 

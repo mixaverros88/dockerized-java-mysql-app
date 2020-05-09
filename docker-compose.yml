@@ -12,7 +12,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=supersecret 
     ports:
-      - 3306:3306
+      - 3311:3306
     networks:
       - isolated
 
