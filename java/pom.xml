@@ -11,6 +11,15 @@
     <name>RESTfulExample Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <profiles>
+        <profile>
+            <id>noTests</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
+
     <properties>
         <junit>4.8.2</junit>
         <com.sun.jersey>1.8</com.sun.jersey>
