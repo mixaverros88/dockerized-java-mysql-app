@@ -28,6 +28,7 @@
         <maven-war-plugin>2.1</maven-war-plugin>
         <org.apache.tomcat.maven>2.2</org.apache.tomcat.maven>
         <org.apache.maven.plugins>3.2</org.apache.maven.plugins>
+        <maven.help.plugin>3.1.0</maven.help.plugin>
     </properties>
 
     <repositories>
@@ -88,6 +89,20 @@
                     <server>stage-server</server>
                     <update>true</update>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>${maven.help.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>show-profiles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>active-profiles</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
